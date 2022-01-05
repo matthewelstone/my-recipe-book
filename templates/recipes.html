@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Recipe Book</title>
+</head>
+<body>
+    {% for recipe in recipes %}
+        {{ recipe.recipe_name }}<br>
+        {{ recipe.author }}<br>
+        {{ recipe.description }}<br>
+        <img src="{{ recipe.image }}" height=150 > <br>
+        {{ recipe.course }}<br>
+        {{ recipe.cuisine }}<br>
+        {{ recipe.servings }}<br>
+        {{ recipe.prep_time }}<br>
+        {{ recipe.cook_time }}<br>
+        <ul>
+        {% for ingredient in recipe.ingredients %}
+            <li>{{ ingredient }}</li>            
+        {% endfor %}
+        </ul>
+        <ol>
+            {% for step in recipe.steps %}
+                <li>{{ step }}</li>
+            {% endfor %}
+        </ol>
+        {{ recipe.comments }}<br>
+    {% endfor %}
+</body>
+</html>
