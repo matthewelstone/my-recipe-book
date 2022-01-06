@@ -6,8 +6,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
-    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" 
-    referrerpolicy="no-referrer" type="text./css"/>
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
@@ -15,15 +14,47 @@
     <title>My Recipe Book</title>
 </head>
 <body>
-    <h1> This is part of the base template</h1>
+  <header>
+    <!-- top navbar -->
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="{{ url_for('get_recipes') }}" class="brand-logo">My Recipe Book</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+            <li><a href="">Add Recipe</a></li>
+            <li><a href="">Profile</a></li>
+            <li><a href="">Manage Cuisines</a></li>
+            <li><a href="">Log in</a></li>
+            <li><a href="">Log Out</a></li>
+            <li><a href="">Register</a></li>
+          </ul>
+        </div>
+      </nav>
+  </div>
+    <!-- mobile navbar -->
+    <ul class="sidenav" id="mobile-demo">
+      <li><h4 class="center-align">My Recipe Book</li>
+      <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+      <li><a href="">Add Recipe</a></li>
+      <li><a href="">Profile</a></li>
+      <li><a href="">Manage Cuisines</a></li>
+      <li><a href="">Log in</a></li>
+      <li><a href="">Log Out</a></li>
+      <li><a href="">Register</a></li>
+    </ul>
+  </header>
     {% block content %}
+
     {% endblock %}
-    <script
+
+<script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{url_for('static',filename='js/script.js') }} "></script>
     {% block scripts %}
     {% endblock %}
 </body>
