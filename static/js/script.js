@@ -3,6 +3,8 @@ $(document).ready(function(){
 });
 
 
+
+
 var password = document.getElementById("password");
 var confirmPassword = document.getElementById("confirmPassword");
 
@@ -13,6 +15,18 @@ function validatePassword(){
         confirmPassword.setCustomValidity("");
     }
 }
-
 password.onchange = validatePassword;
 confirmPassword.onkeyup = validatePassword;
+
+
+
+function confirmLogout(){
+    var agree = confirm("Are you sure?");
+
+    if(agree){
+        return true;
+    } else {
+        return false;
+    }
+}
+
