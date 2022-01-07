@@ -24,9 +24,9 @@
           <ul class="right hide-on-med-and-down">
             <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
             <li><a href="">Add Recipe</a></li>
-            <li><a href="">Profile</a></li>
+            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
             <li><a href="">Manage Cuisines</a></li>
-            <li><a href="">Log in</a></li>
+            <li><a href="{{ url_for('login') }}">Log in</a></li>
             <li><a href="">Log Out</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
           </ul>
@@ -38,9 +38,9 @@
       <li><h4 class="center-align">My Recipe Book</li>
       <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
       <li><a href="">Add Recipe</a></li>
-      <li><a href="">Profile</a></li>
+      <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
       <li><a href="">Manage Cuisines</a></li>
-      <li><a href="">Log in</a></li>
+      <li><a href="{{ url_for('login') }}">Log in</a></li>
       <li><a href="">Log Out</a></li>
       <li><a href="{{ url_for('register') }}">Register</a></li>
     </ul>
