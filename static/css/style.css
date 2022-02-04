@@ -4,3 +4,9 @@ body{
 flashes{
     line-height: 4;
 }
+
+.time-text{
+    float: right;
+    font-size: 66%;
+    
+}
