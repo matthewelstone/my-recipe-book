@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="center-align">Add Recipe</h3>
+
+    <div class="row">
+        <form class="col s10 offset-s1 add-recipe-form" method="POST" action="">
+            <div class="row">
+
+                <div class="col s12 l6 recipe-img">
+                    <img src="" alt="">
+                </div>
+
+                <div class="col s12 l6">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="recipe_name" minlength="4" maxlength="50" type="text" name="recipe_name" class="validate">
+                            <label for="recipe_name">Recipe Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <i class="far fa-clock prefix"></i>
+                            <input name="prep_time" id="prep_time" type="number" min="0" max="120" class="validate">
+                            <label for="prep_time">Prep Time <sup>(minutes)</sup></label>
+                        </div>
+                        <div class="input-field col s4">
+                            <i class="far fa-clock prefix"></i>
+                            <input name="cook_time" id="cook_time" type="number" min="0" max="120" class="validate">
+                            <label for="cook_time">Cook Time <sup>(minutes)</sup></label>
+                        </div>
+                        <div class="input-field col s4">
+                            <i class="fas fa-utensils prefix"></i>
+                            <input name="servings" id="servings" type="number" min="1" max="20" class="validate">
+                            <label for="servings">Servings</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <select id="cuisine_name" name="cuisine_name" class="validate" >
+                              <option value="" disabled selected>Choose Cuisine</option>
+                              {% for cuisine in cuisines %}
+                                <option value="{{ cuisine.cuisine_name }}">{{ cuisine.cuisine_name }}</option>
+                              {% endfor %}
+                            </select>
+                            <label>Cuisine</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <select id="cuisine_name" name="cuisine_name" class="validate" >
+                              <option value="" disabled selected>Meal Type</option>
+                              {% for type in types %}
+                                <option value="{{ type.type_name }}">{{ type.type_name }}</option>
+                              {% endfor %}
+                            </select>
+                            <label>Meal Type</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="description" name="description"  class="materialize-textarea"></textarea>
+                    <label for="description">Description</label>
+                  </div>
+            </div>
+            <div class="row">
+                <div class="col s12 header">
+                    <h6>Ingredients</h6>
+                    <ul id="ingredients" class="collection">
+                        
+                        <li class="collection-item">
+                            <a class="btn-small add-list-item">
+                                <i class="fas fa-plus-circle"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 header">
+                    <h6>Method</h6>
+                    <ul id="steps" class="collection">
+                        
+                        <li class="collection-item">
+                            <a class="btn-small add-list-item">
+                                <i class="fas fa-plus-circle"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col s10 offset-s1 center-align">
+                
+
+            </div>
+
+        </form>
+    </div>
+
+
+{% endblock %}

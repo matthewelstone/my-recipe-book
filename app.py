@@ -90,6 +90,13 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route("/add_recipe")
+def add_recipe():
+    cuisines = mongo.db.cuisines.find().sort("cuisine_name", 1)
+    types = mongo.db.types.find().sort("type_name", 1)
+    return render_template("add_recipe.html", cuisines=cuisines, types=types)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
