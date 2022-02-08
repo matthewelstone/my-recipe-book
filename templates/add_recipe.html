@@ -4,7 +4,7 @@
     <h3 class="center-align">Add Recipe</h3>
 
     <div class="row">
-        <form class="col s10 offset-s1 add-recipe-form" method="POST" action="">
+        <form class="col s10 offset-s1 add-recipe-form" method="POST" action="{{ url_for('add_recipe') }}">
             <div class="row">
 
                 <div class="col s12 l6 recipe-img">
@@ -91,11 +91,13 @@
                     </ul>
                 </div>
             </div>
-            <div class="col s10 offset-s1 center-align">
-                
-
+            <div class="row">
+                <div class="col s10 offset-s1 center-align">
+                    <button type="submit" class="btn-large">
+                        Add Recipe 
+                    </button>
+                </div>
             </div>
-
         </form>
     </div>
 
