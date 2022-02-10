@@ -108,9 +108,28 @@ def add_recipe():
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added")
+        return redirect(url_for("get_recipes"))   
     cuisines = mongo.db.cuisines.find().sort("cuisine_name", 1)
     types = mongo.db.types.find().sort("type_name", 1)
     return render_template("add_recipe.html", cuisines=cuisines, types=types)
+
+
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+
+    cuisines = mongo.db.cuisines.find().sort("cuisine_name", 1)
+    types = mongo.db.types.find().sort("type_name", 1)
+    return render_template("edit_recipe.html", recipe=recipe, cuisines=cuisines, types=types)
+
+
+@app.route("/recipe_page.html/<recipe_id>", methods=["GET", "POST"])
+def recipe_page(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+
+    cuisines = mongo.db.cuisines.find().sort("cuisine_name", 1)
+    types = mongo.db.types.find().sort("type_name", 1)
+    return render_template("recipe_page.html", recipe=recipe, cuisines=cuisines, types=types)
 
 
 if __name__ == "__main__":

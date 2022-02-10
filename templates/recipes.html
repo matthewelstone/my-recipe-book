@@ -1,31 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-    {% for recipe in recipes %}
-        {{ recipe.recipe_name }}<br>
-        {{ recipe.author }}<br>
-        {{ recipe.description }}<br>
-        <img src="{{ recipe.image }}" height=150 > <br>
-        {{ recipe.course }}<br>
-        {{ recipe.cuisine_name }}<br>
-        {{ recipe.servings }}<br>
-        {{ recipe.prep_time }}<br>
-        {{ recipe.cook_time }}<br>
-        <ul>
-        {% for ingredient in recipe.ingredients %}
-            <li>{{ ingredient }}</li>            
-        {% endfor %}
-        </ul>
-        <ol>
-            {% for step in recipe.steps %}
-                <li>{{ step }}</li>
-            {% endfor %}
-        </ol>
-        {{ recipe.comments }}<br>
-    {% endfor %}
- 
-
-
     <div class="row">
 
       {% for recipe in recipes %}
@@ -35,7 +10,7 @@
             <img src="{{ recipe.image }}" height=150>
           </div>
           <div class="card-content">
-            <span class="card-title"> <strong>{{ recipe.recipe_name }}</strong><span>
+            <span class="card-title"><a href="{{ url_for('recipe_page', recipe_id=recipe._id) }}"> <strong>{{ recipe.recipe_name }}</strong></a><span>
             <span class="time-text">{{ recipe.prep_time + recipe.cook_time }} Minutes</span>
             <p>{{ recipe.description }}</p>
           </div>
