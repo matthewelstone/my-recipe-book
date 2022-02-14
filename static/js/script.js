@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('.sidenav').sidenav({edge: "right"});
     $('select').formSelect();
-    $('.tabs').tabs();
+    $('.tabs').tabs({swipeable: "true"});
 });
 
 
