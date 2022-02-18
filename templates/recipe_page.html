@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="recipe-container">
-    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="waves-effect waves-light btn-small">Edit</a>
     <div class="row recipe-head center-align">
+        {% if session.user | lower == recipe.author or session.user | lower == "admin" %}
+        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="waves-effect waves-light btn-small">Edit</a>
+        {% endif %}
         <div class="col s12 l6">
             <img src="{{ recipe.image }}" width="100%" alt="recipe header image" > 
         </div>

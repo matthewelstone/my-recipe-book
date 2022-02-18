@@ -14,42 +14,50 @@
                 <div class="col s12 l6">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="recipe_name" minlength="4" maxlength="50" type="text" name="recipe_name" class="validate">
+                            <input value="{{ recipe.recipe_name }}" id="recipe_name" minlength="4" maxlength="50" type="text" name="recipe_name" class="validate">
                             <label for="recipe_name">Recipe Name</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s4">
                             <i class="far fa-clock prefix"></i>
-                            <input name="prep_time" id="prep_time" type="number" min="0" max="120" class="validate">
+                            <input value="{{ recipe.prep_time }}" name="prep_time" id="prep_time" type="number" min="0" max="120" class="validate">
                             <label for="prep_time">Prep Time <sup>(minutes)</sup></label>
                         </div>
                         <div class="input-field col s4">
                             <i class="far fa-clock prefix"></i>
-                            <input name="cook_time" id="cook_time" type="number" min="0" max="120" class="validate">
+                            <input value="{{ recipe.cook_time }}" name="cook_time" id="cook_time" type="number" min="0" max="120" class="validate">
                             <label for="cook_time">Cook Time <sup>(minutes)</sup></label>
                         </div>
                         <div class="input-field col s4">
                             <i class="fas fa-utensils prefix"></i>
-                            <input name="servings" id="servings" type="number" min="1" max="20" class="validate">
+                            <input value="{{ recipe.servings }}" name="servings" id="servings" type="number" min="1" max="20" class="validate">
                             <label for="servings">Servings</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
                             <select id="cuisine_name" name="cuisine_name" class="validate" >
-                              <option value="" disabled selected>Choose Cuisine</option>
+                              <option value="" disabled >Choose Cuisine</option>
                               {% for cuisine in cuisines %}
-                                <option value="{{ cuisine.cuisine_name }}">{{ cuisine.cuisine_name }}</option>
+                                {% if cuisine.cuisine_name == recipe.cuisine_name %}
+                                    <option value="{{ cuisine.cuisine_name }}" selected>{{ cuisine.cuisine_name }}</option>
+                                {% else %}
+                                    <option value="{{ cuisine.cuisine_name }}">{{ cuisine.cuisine_name }}</option>
+                                {% endif %}
                               {% endfor %}
                             </select>
                             <label>Cuisine</label>
                         </div>
                         <div class="input-field col s6">
-                            <select id="cuisine_name" name="cuisine_name" class="validate" >
-                              <option value="" disabled selected>Meal Type</option>
+                            <select id="type_name" name="type_name" class="validate" >
+                                <option value="" disabled selected>Meal Type</option>
                               {% for type in types %}
-                                <option value="{{ type.type_name }}">{{ type.type_name }}</option>
+                                {% if type.type_name == recipe.type_name %}
+                                    <option value="{{ type.type_name }}" selected>{{ type.type_name }}</option>
+                                {% else %}
+                                    <option value="{{ type.type_name }}">{{ type.type_name }}</option>
+                                {% endif %}
                               {% endfor %}
                             </select>
                             <label>Meal Type</label>
@@ -59,7 +67,9 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="description" name="description"  class="materialize-textarea"></textarea>
+                    <textarea  id="description" name="description"  class="materialize-textarea">
+                        {{- recipe.description -}}
+                    </textarea>
                     <label for="description">Description</label>
                   </div>
             </div>
@@ -67,6 +77,14 @@
                 <div class="col s12 header">
                     <h6>Ingredients</h6>
                     <ul id="ingredients" class="collection">
+                        {% for ingredient in recipe.ingredients %}
+                        <li class='collection-item'>
+                            <div class='input-field'>
+                              <input value="{{ ingredient }}" name='ingredients' type='text' maxlength='120' required>
+                            </div>
+                            <a class='remove-list-item'><i class="fas fa-times"></i></a>
+                          </li>
+                        {% endfor %}
                         
                         <li class="collection-item">
                             <a class="btn-small add-list-item">
@@ -81,7 +99,15 @@
                 <div class="col s12 header">
                     <h6>Method</h6>
                     <ul id="steps" class="collection">
-                        
+                        {% for step in recipe.steps %}
+                        <li class='collection-item'>
+                            <div class='input-field'>
+                              <input value="{{ step }}" name='steps' type='text' maxlength='120' required>
+                            </div>
+                            <a class='remove-list-item'><i class="fas fa-times"></i></a>
+                          </li>
+
+                        {% endfor %}
                         <li class="collection-item">
                             <a class="btn-small add-list-item">
                                 <i class="fas fa-plus-circle"></i>
@@ -93,6 +119,9 @@
             </div>
             <div class="row">
                 <div class="col s10 offset-s1 center-align">
+                    <a href="{{ url_for('get_recipes') }}" class="btn-large red">
+                        Cancel
+                    </a>
                     <button type="submit" class="btn-large">
                         Edit Recipe 
                     </button>

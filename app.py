@@ -97,7 +97,7 @@ def add_recipe():
             "recipe_name": request.form.get("recipe_name"),
             "description": request.form.get("description"),
             "image": request.form.get("image"),
-            "course": request.form.get("course"),
+            "type_name": request.form.get("type_name"),
             "servings": request.form.get("servings"),
             "cuisine_name": request.form.get("cuisine_name"),
             "prep_time": request.form.get("prep_time"),
@@ -116,6 +116,24 @@ def add_recipe():
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+    if request.method == "POST":
+        recipes = mongo.db.recipes
+        recipes.update_one({"_id": ObjectId(recipe_id)}, {"$set": {
+            "recipe_name": request.form.get("recipe_name"),
+            "description": request.form.get("description"),
+            "image": request.form.get("image"),
+            "type_name": request.form.get("type_name"),
+            "servings": request.form.get("servings"),
+            "cuisine_name": request.form.get("cuisine_name"),
+            "prep_time": request.form.get("prep_time"),
+            "cook_time": request.form.get("cook_time"),
+            "ingredients": request.form.getlist("ingredients"),
+            "steps": request.form.getlist("steps"),
+            "author": session["user"]}},
+            upsert=True)
+
+        flash("Recipe Successfully Updated")
+
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
 
     cuisines = mongo.db.cuisines.find().sort("cuisine_name", 1)
