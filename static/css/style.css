@@ -5,6 +5,21 @@ flashes{
     line-height: 4;
 }
 
+.main-recipes-container{
+    padding-left:20px;
+    padding-right:20px;
+}
+
+
+
+#imageHolder{
+    width: 300px;
+    height: 250px;
+    border: 1px solid black;
+    background-position: center;
+    background-size: cover;
+}
+
 .time-text{
     float: right;
     font-size: 66%;

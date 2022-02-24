@@ -9,7 +9,7 @@ var password = document.getElementById("password");
 var confirmPassword = document.getElementById("confirmPassword");
 
 
-
+// ----- Logout
 function confirmLogout(){
     var agree = confirm("Are you sure?");
 
@@ -20,6 +20,20 @@ function confirmLogout(){
     }
 }
 
+// ---- Shows the image on upload
+
+
+$('#image').bind('input', function() {
+	$('#imageHolder').attr('src', $(this).val()); 
+});
+
+
+$("#imputImage").bind('input', function(){
+    $("#image-preview-image").attr("src", $(this).val());
+    console.log(result)
+});
+			
+// ----- Adds steps / ingredients 
 $("#ingredients , #steps").on("click", ".remove-list-item", function(event) {
     $(this).parent().remove();
 });
@@ -36,7 +50,8 @@ $( "#ingredients .add-list-item").click(function(event) {
 $( "#steps .add-list-item").click(function(event) {
     let listItem = `<li class='collection-item'>
                     <div class='input-field'>
-                      <input name='steps' type='text' maxlength='120' required>
+                      <textarea  name="steps"  class="materialize-textarea">
+                      </textarea>
                     </div>
                     <a class='remove-list-item'><i class="fas fa-times"></i></a>
                   </li>`;

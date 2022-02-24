@@ -8,8 +8,8 @@
             <div class="row">
 
                 <div class="col s12 l6 recipe-img">
-                    <img src="" alt="">
-                </div>
+                    <input type="text" name="image" id="image" value="{{ recipe.image }}"><br><br>
+                    <img name="imageHolder" id="imageHolder" src="{{ recipe.image }}">                </div>
 
                 <div class="col s12 l6">
                     <div class="row">
@@ -102,7 +102,9 @@
                         {% for step in recipe.steps %}
                         <li class='collection-item'>
                             <div class='input-field'>
-                              <input value="{{ step }}" name='steps' type='text' maxlength='120' required>
+                                <textarea  name="steps"  class="materialize-textarea">
+                                    {{- step -}}
+                                </textarea>
                             </div>
                             <a class='remove-list-item'><i class="fas fa-times"></i></a>
                           </li>
@@ -119,12 +121,15 @@
             </div>
             <div class="row">
                 <div class="col s10 offset-s1 center-align">
-                    <a href="{{ url_for('get_recipes') }}" class="btn-large red">
+                    <a href="{{ url_for('get_recipes') }}" class="btn-large grey">
                         Cancel
                     </a>
                     <button type="submit" class="btn-large">
                         Edit Recipe 
                     </button>
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" onClick="return confirmLogout()" class="btn-large red">
+                        Delete Recipe
+                    </a>
                 </div>
             </div>
         </form>
