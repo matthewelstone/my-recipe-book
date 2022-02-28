@@ -17,7 +17,7 @@
   <header>
     <!-- top navbar -->
     <div class="navbar-fixed">
-      <nav>
+      <nav class="sage">
         <div class="nav-wrapper">
           <a href="{{ url_for('get_recipes') }}" class="brand-logo">My Recipe Book</a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
@@ -39,7 +39,7 @@
       </nav>
   </div>
     <!-- mobile navbar -->
-    <ul class="sidenav" id="mobile-demo">
+    <ul class="sidenav sage" id="mobile-demo">
       <li><h4 class="center-align">My Recipe Book</li>
       <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
       {% if session.user %}

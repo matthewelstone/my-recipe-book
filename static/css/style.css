@@ -1,18 +1,57 @@
-body{
-    
+body {
+    color: #444C38;
+    background-color: #D0F0C0;
+
 }
-flashes{
+
+flashes {
     line-height: 4;
 }
 
-.main-recipes-container{
-    padding-left:20px;
-    padding-right:20px;
+.sage {
+    background-color: #9DC183;
+}
+
+.uniform {
+    background-color: #444C38;
+}
+
+.uniform-text {
+    color: #444C38;
+}
+
+.hunter {
+    background-color: #3F704D;
+}
+
+.tea {
+    background-color: #D0F0C0;
+}
+
+.laurel {
+    background-color: #A9BA9D;
+}
+
+.main-recipes-container {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.ingredient-text {
+    color: black;
+}
+
+.tab-container {
+    padding-bottom: 20px;
+    color: #444C38;
+}
+
+.recipe-name {
+    padding-top: 20px;
 }
 
 
-
-#imageHolder{
+#imageHolder {
     width: 300px;
     height: 250px;
     border: 1px solid black;
@@ -20,21 +59,25 @@ flashes{
     background-size: cover;
 }
 
-.time-text{
+.time-text {
     float: right;
     font-size: 66%;
-    
+
 }
 
-.ingredient-text{
-    color: black;
+.tabs .tab a {
+    color:#7c8173;
 }
 
-.row{
-    margin-bottom: 0;
+.tabs .tab a:hover,
+.tabs .tab a.active {
+    color: #444C38;
+}
+.tabs .indicator{
+    background-color: #3F704D;
 }
 
-
-.comment-section{
-    
+.collection .collection-item{
+    background-color: #9DC183;
+    color: #444C38
 }
