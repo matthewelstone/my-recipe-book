@@ -18,6 +18,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
@@ -156,6 +157,44 @@ def delete_recipe(recipe_id):
     flash("Recipe Successfully Deleted")
     return redirect(url_for("get_recipes"))
 
+@app.route("/get_cuisines")
+def get_cuisines():
+    cuisines = list(mongo.db.cuisines.find().sort("cuisine_name", 1))
+    return render_template("cuisines.html", cuisines=cuisines)
+
+
+@app.route("/add_cuisine", methods=["GET", "POST"])
+def add_cuisine():
+    if request.method == "POST":
+        cuisine = {
+            "cuisine_name": request.form.get("cuisine_name")
+        }
+        mongo.db.cuisines.insert_one(cuisine)
+        flash("New Cuisine Added")
+        return redirect(url_for("get_cuisines"))
+    return render_template("add_cuisine.html")
+
+
+@app.route("/edit_cuisine/<cuisine_id>", methods=["GET", "POST"])
+def edit_cuisine(cuisine_id):
+    if request.method == "POST":
+        cuisines = mongo.db.cuisines
+        cuisines.update_one({"_id": ObjectId(cuisine_id)}, {"$set": {
+            "cuisine_name": request.form.get("cuisine_name")}},
+            upsert=True)
+
+        flash("Cuisine Successfully Updated")
+        return redirect(url_for("get_cuisines"))
+
+    cuisine = mongo.db.cuisines.find_one({"_id": ObjectId(cuisine_id)})
+    return render_template("edit_cuisine.html", cuisine=cuisine)
+
+
+@app.route("/delete_cuisine/<cuisine_id>")
+def delete_cuisine(cuisine_id):
+    mongo.db.cuisines.delete_one({"_id": ObjectId(cuisine_id)})
+    flash ("Cuisine Sucessfully Deleted")
+    return redirect(url_for("get_cuisines"))
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

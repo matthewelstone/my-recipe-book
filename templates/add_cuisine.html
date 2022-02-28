@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="center-align">Add Cuisine</h3>
+
+    <div class="row">
+        <form class="col s10 offset-s1 add-recipe-form" method="POST" action="{{ url_for('add_cuisine') }}">
+            <div class="row">
+                <div class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="cuisine_name" minlength="3" maxlength="15" type="text" name="cuisine_name" class="validate">
+                            <label for="cuisine_name">Cuisine Name</label>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+            <div class="row">
+                <div class="col s10 offset-s1 center-align">
+                    <button type="submit" class="btn-large">
+                        Add Cuisine
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}

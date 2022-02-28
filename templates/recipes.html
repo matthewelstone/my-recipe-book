@@ -7,7 +7,9 @@
       <div class="col s12 m6 l4 main-recipes-container">
         <div class="card">
           <div class="card-image">
+            <a href="{{ url_for('recipe_page', recipe_id=recipe._id) }}">
             <img class="recipe-img" src="{{ recipe.image }}" height=150>
+            </a>
           </div>
           <div class="card-content">
             <span class="card-title"><a href="{{ url_for('recipe_page', recipe_id=recipe._id) }}"> <strong>{{ recipe.recipe_name }}</strong></a><span>

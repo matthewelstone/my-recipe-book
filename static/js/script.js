@@ -50,8 +50,7 @@ $( "#ingredients .add-list-item").click(function(event) {
 $( "#steps .add-list-item").click(function(event) {
     let listItem = `<li class='collection-item'>
                     <div class='input-field'>
-                      <textarea  name="steps"  class="materialize-textarea">
-                      </textarea>
+                      <textarea  name="steps"  class="materialize-textarea"></textarea>
                     </div>
                     <a class='remove-list-item'><i class="fas fa-times"></i></a>
                   </li>`;
