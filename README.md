@@ -88,6 +88,41 @@ I made my wireframes using Balsamiq. I didn't make a wireframe for each individu
 [Web](assets/images/add-recipe-large.png)
 
 
+## Features
+
+### Current Features
+
+### Login / Register
+- When the user wants to make an acount then they are prompted to enter their password twice and the form will not submit unless they are the same
+- When logging in they will need to use the correct username and password. if not correct an error message will flash on the screen
+
+### Recipes Page
+- At the top of the page there is a search functionality that will search the recipe name and also the recipe description for any keyword that the user searches.
+
+### Profile Page
+- While the user is logged in they can access their profile page where it displays their name and also any recipes that they have uploaded to the site.
+
+### Add Recipe
+- When a user is logged in they can access the add recipe page. 
+- When the user inputs a URL for the recipe image the image automatically updates and shows a preview of the image.
+
+### Edit Recipe
+- If the recipe author is the user then they will have the option to edit the recipe
+- On this page there is also the function to delete the recipe which will prompt a message asking "are you sure?"
+
+
+### Admin
+- The admin can go to the manage cuisines page where they can add, edit and delete any other cuisines that they might want to add.
+- They can also delete or edit any recipe that any users add to the database.
+   
+ 
+### Features which I want to implement in the future
+
+- Changing the image upload so that you can upload an actual image instead of imputing a URL
+- Adding a comments section to each of the recipe pages
+- Adding a rating section for each of the recipes
+
+
 
 ## Technologies Used
 
