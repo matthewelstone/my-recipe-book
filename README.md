@@ -137,12 +137,12 @@ Was used for the the Image at the top of the repository.
 ### Lighthouse Testing
 All the scores in lighthouse are testing fairly high apart from the best practices.  The reason that best practices are being pulled down is because of the images shown on the recipe cards. As all of the img src are urls I can't fix this at this time but in the future when I would like the user to upload the actual image file rather thatn provide a url this will be addressed.
 
-<img src="assets/images/pep8.png" height="100px">
+<img src="assets/images/lighthouse-testing.png" height="100px">
 
 ### Pep8 Validation
 -To test my python code I used the [pep8 validator](http://pep8online.com/)
 
-<img src="assets/images/lighthouse-testing.png" height="200px">
+<img src="assets/images/pep8.png" height="200px">
 
 
 
