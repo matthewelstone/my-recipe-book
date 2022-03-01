@@ -135,3 +135,11 @@ flashes {
   .btn-large:hover, .btn-small:hover .search:hover {
       background-color: #444C38;
   }
+  .social-link{
+      font-size: 40px;
+      padding-left: 10px;
+  }
+
+  .social-link:hover{
+      color: #3F704D;
+  }

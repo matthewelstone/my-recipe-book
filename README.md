@@ -73,6 +73,22 @@ All text is rendered in Roboto as it is easy to read and widely used. Giving the
 
 The site is designed to work and be used on various screen sizes with the layout changing responsively thanks to Materializecss.
 
+- ### Wireframes
+
+I made my wireframes using Balsamiq. I didn't make a wireframe for each individual page as I knew that there was going to be quite a lot of crossover in the layout of each of the pages. There were a few changes to the wireframes during development. 
+
+- Recipes
+[Mobile](assets/images/recipes-small.png)
+[Tablet](assets/images/recipes-med.png)
+[Web](assets/images/recipes-large.png)
+
+- Add recipe
+[Mobile](assets/images/add-recipe-small.png)
+[Tablet](assets/images/add-recipe-med.png)
+[Web](assets/images/add-recipe-large.png)
+
+
+
 ## Technologies Used
 
 
