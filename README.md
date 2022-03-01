@@ -134,6 +134,9 @@ Was used for the the Image at the top of the repository.
 
 ## Testing
 
+At the time of testing the W3 validator website is down so I have not included testing and validation for my html and css.
+
+
 ### Lighthouse Testing
 All the scores in lighthouse are testing fairly high apart from the best practices.  The reason that best practices are being pulled down is because of the images shown on the recipe cards. As all of the img src are urls I can't fix this at this time but in the future when I would like the user to upload the actual image file rather thatn provide a url this will be addressed.
 
