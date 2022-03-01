@@ -3,6 +3,10 @@ body {
     background-color: #D0F0C0;
 
 }
+.brand-logo{
+    min-width: 220px;
+}
+
 
 flashes {
     line-height: 4;
@@ -17,13 +21,15 @@ flashes {
 }
 
 .uniform-text {
-    color: #444C38;
+    color: #444C38 ;
 }
 
 .hunter {
     background-color: #3F704D;
 }
-
+.hunter-text{
+    color:#3F704D;
+}
 .tea {
     background-color: #D0F0C0;
 }
@@ -36,6 +42,14 @@ flashes {
     padding-left: 20px;
     padding-right: 20px;
 }
+
+.search{
+    margin-top: 5px;
+}
+#search-input, .input-field .prefix.active, #image{
+    color:#3F704D;
+}
+
 
 .ingredient-text {
     color: black;
@@ -50,13 +64,19 @@ flashes {
     padding-top: 20px;
 }
 
-
 #imageHolder {
-    width: 300px;
-    height: 250px;
-    border: 1px solid black;
+    width: 80%;
+    border: 1.5px solid #444C38;
     background-position: center;
     background-size: cover;
+}
+.recipe-card-name{
+    font-weight: 600;
+    color: #3F704D;
+
+}
+.description-text{
+    font-size: 15px;
 }
 
 .time-text {
@@ -81,3 +101,36 @@ flashes {
     background-color: #9DC183;
     color: #444C38
 }
+
+
+  /* label color */
+  .input-field label {
+    color: #444C38;
+  }
+  /* label focus color */
+  .input-field input:focus + label {
+    color: #444C38 !important;
+  }
+  /* label underline focus color */
+  .input-field input:focus {
+    border-bottom: 1px solid #444C38 !important;
+    box-shadow: 0 1px 0 0 #444C38 !important;
+  }
+  /* valid color */
+  .input-field input.valid {
+    border-bottom: 1px solid #3F704D;
+    box-shadow: 0 1px 0 0 #3F704D;
+  }
+  /* invalid color */
+  .input-field input.invalid {
+    border-bottom: 1px solid rgb(214, 164, 173);
+    box-shadow: 0 1px 0 0 rgb(214, 164, 173);
+  }
+  /* icon prefix focus color */
+  .input-field .prefix.active {
+    color: #444C38;
+  }
+
+  .btn-large:hover, .btn-small:hover .search:hover {
+      background-color: #444C38;
+  }

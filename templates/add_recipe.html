@@ -8,7 +8,8 @@
             <div class="row">
 
                 <div class="col s12 l6 recipe-img">
-                    <input type="text" name="image" id="image" value="" placeholder="Input image URL"><br><br>
+                    <input class="uniform-text" type="text" name="image" id="image" value="" placeholder="Input image URL">
+                    <label for="image">Input image URL</label><br><br>
                     <img name="imageHolder" id="imageHolder" src="https://i.imgur.com/eGLHCUx.jpeg">
                 </div>
 
@@ -60,7 +61,7 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="description" name="description"  class="materialize-textarea"></textarea>
+                    <textarea id="description" name="description"  class="materialize-textarea" validate></textarea>
                     <label for="description">Description</label>
                   </div>
             </div>
@@ -70,7 +71,7 @@
                     <ul id="ingredients" class="collection">
                         
                         <li class="collection-item">
-                            <a class="btn-small add-list-item">
+                            <a class="btn-small add-list-item hunter">
                                 <i class="fas fa-plus-circle"></i>
                             </a>
                         </li>
@@ -84,7 +85,7 @@
                     <ul id="steps" class="collection">
                         
                         <li class="collection-item">
-                            <a class="btn-small add-list-item">
+                            <a class="btn-small add-list-item hunter">
                                 <i class="fas fa-plus-circle"></i>
                             </a>
                         </li>
@@ -94,7 +95,7 @@
             </div>
             <div class="row">
                 <div class="col s10 offset-s1 center-align">
-                    <button type="submit" class="btn-large">
+                    <button type="submit" class="hunter btn-large">
                         Add Recipe 
                     </button>
                 </div>

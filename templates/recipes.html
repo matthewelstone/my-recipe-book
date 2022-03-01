@@ -1,48 +1,49 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="row">
+<div class="row">
 
-      <div class="row card-panel laurel">
-        <form action="{{ url_for('search') }}" method="POST" class="col s12">
-          <div class="row valign-wrapper center-align">
-            <div class="input-field col s12 m8">
-              <i class="fas fa-search prefix"></i>
-              <input type="text" name="query" id="query" minlength="3" class="validate" required>
-              <label for="query">Search Recipes</label>
-            </div>
-            <div class="col s12 m4">
-              <a href="{{ url_for('get_recipes') }}" class="uniform btn">Reset</a>
-              <button type="submit" class="btn hunter">
-                Search
-                <i class="fas fa-search left"></i>
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-      
-      {% if recipes|length > 0 %}
-      {% for recipe in recipes %}
-      <div class="col s12 m6 l4 main-recipes-container">
-        <div class="card">
-          <div class="card-image">
-            <a href="{{ url_for('recipe_page', recipe_id=recipe._id) }}">
-            <img class="recipe-img" src="{{ recipe.image }}" height=150>
-            </a>
-          </div>
-          <div class="card-content">
-            <span class="card-title"><a href="{{ url_for('recipe_page', recipe_id=recipe._id) }}"> <strong>{{ recipe.recipe_name }}</strong></a><span>
-            <span class="time-text">{{ recipe.prep_time|int + recipe.cook_time|int }} Minutes</span>
-            <p>{{ recipe.description|truncate(125) }}</p>
-          </div>
+  <div class="row card-panel laurel">
+    <form action="{{ url_for('search') }}" method="POST" class="col s12">
+      <div class="row valign-wrapper center-align">
+        <div class="input-field col s12 m8">
+          <i class="fas fa-search prefix hunter-text"></i>
+          <input type="text" name="query" id="query" minlength="3" class="validate" required>
+          <label id="search-input" class="hunter-text" for="query">Search Recipes</label>
+        </div>
+        <div class="col s12 m4">
+          <a href="{{ url_for('get_recipes') }}" class="uniform search btn">Reset</a>
+          <button type="submit" class="btn search hunter">
+            Search
+            <i class="fas fa-search left"></i>
+          </button>
         </div>
       </div>
-      {% endfor %}
-      {% else %}
-      <h3 class="no-results">No Results Found</h3>
-      {% endif %}
+    </form>
+  </div>
+
+  {% if recipes|length > 0 %}
+  {% for recipe in recipes %}
+  <div class="col s12 m6 l4 main-recipes-container">
+    <div class="card">
+      <div class="card-image">
+        <a href="{{ url_for('recipe_page', recipe_id=recipe._id) }}">
+          <img class="recipe-img" src="{{ recipe.image }}" height=150>
+        </a>
+      </div>
+      <div class="card-content">
+        <span class="card-title"><a class="recipe-card-name" href="{{ url_for('recipe_page', recipe_id=recipe._id) }}">
+            <strong>{{ recipe.recipe_name }}</strong></a><span>
+            <span class="time-text">{{ recipe.prep_time|int + recipe.cook_time|int }} Minutes</span>
+            <p class="description-text">{{ recipe.description|truncate(150) }}</p>
+      </div>
     </div>
-    
+  </div>
+  {% endfor %}
+  {% else %}
+  <h3 class="no-results">No Results Found</h3>
+  {% endif %}
+</div>
+
 
 {% endblock %}

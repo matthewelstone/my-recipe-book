@@ -84,10 +84,14 @@ def login():
 def profile(username):
     username= mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("profile.html", username=username)
+
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        recipes = list(mongo.db.recipes.find({"author" : username}))
+
+
+
+        return render_template("profile.html", username=username, recipes=recipes)
 
     return redirect("login.html")
 
@@ -164,6 +168,7 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
     flash("Recipe Successfully Deleted")
     return redirect(url_for("get_recipes"))
+
 
 @app.route("/get_cuisines")
 def get_cuisines():

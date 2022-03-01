@@ -42,29 +42,29 @@
                 {% for ingredient in recipe.ingredients %}
                     <li class="collection-item sage">
                         <label>
-                        <input class="ingregient-checkbox" type="checkbox" name="{{ingredient}}"/>    
-                        <span class="ingredient-text">{{ ingredient }}</span>
+                            <input class="ingregient-checkbox" type="checkbox" name="{{ingredient}}"/>    
+                            <span class="uniform-text">{{ ingredient }}</span>
                         </label>
                     </li>            
                 {% endfor %}
             </ul>
         </div>
           <div id="method" class="col s12">
-            <ol class="collection">
+            <ul class="collection">
                 {% for step in recipe.steps %}
-                    <li>
-                        <input type="radio" id="step-{{ loop.index }}" name="step-check">
-                        <label for="step-{{ loop.index }}">
-                            <span class="collection-item">{{ step }}</span>
+                    <li class="collection-item sage">
+                        <label>
+                            <input class="step-checkbox" type="checkbox" name="{{ step }}"/>    
+                            <span class="uniform-text">{{ step }}</span>
                         </label>
                     </li>
                 {% endfor %}
-            </ol>
+            </ul>
           </div>
     </div>
     {% if session.user | lower == recipe.author or session.user | lower == "admin" %}
         <div class="center-align">
-            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="waves-effect waves-light btn-small">Edit</a>
+            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="waves-effect waves-light btn-large">Edit</a>
         </div>
     {% endif %}
 </div>
