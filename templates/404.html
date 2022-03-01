@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="card-panel hunter-text sage">
+            <h4>Oops!  This page can't be found!</h4>
+            <p>Let's get out of here.</p>
+            <br>
+            <a href="{{ url_for('recipes') }}" class="btn-large">Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

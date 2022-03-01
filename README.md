@@ -58,7 +58,7 @@
 1. I want the site to be attractive, responsive and easy to navigate for the user.
 2. I want users to be able to add their own recipes to the site. 
 
-### Design 
+## Design 
 
 - ### Color Scheme
 
@@ -72,6 +72,56 @@ All text is rendered in Roboto as it is easy to read and widely used. Giving the
 - ### Layout 
 
 The site is designed to work and be used on various screen sizes with the layout changing responsively thanks to Materializecss.
+
+## Technologies Used
+
+
+### Languages and Libraries Used
+1. [HTML5](https://en.wikipedia.org/wiki/HTML5)
+2. [CSS3](https://en.wikipedia.org/wiki/CSS)
+3. [JS](https://en.wikipedia.org/wiki/JavaScript)
+4. [Materialize](https://materializecss.com/) was used for the responsive layout of the site and the initial styling.
+5. [MongoDB](https://cloud.mongodb.com) was used to store the database.
+6. [Jinja](https://palletsprojects.com/p/jinja/) was used as a tmplating language throughout the site
+7. [Google Fonts](https://fonts.google.com/) was used throughout the site to import the Roboto fonts.
+8. [jQuery](https://jquery.com/)
+Was used as a JavaScript library to speed up the writing of JavaScript.
+9. [Font Awesome](https://fontawesome.com/) Was used for the logos of the social media links through the site.
+
+### IDE and Version Control
+
+1. [Git](https://git-scm.com/)
+
+Git was used as a version control software
+
+2. [GitHub](https://github.com/)
+
+GitHub was used as a remote repository where I pushed commits to. 
+GitHub was also used to deploy the site throuhg GitHub pages.
+
+3. [GitPod](https://www.gitpod.io/)
+
+GitPod was used as a text editor that I used to write some of my HTML, CSS and JavaScript.  I stopped using this after the first few days of the project as I can't seem to get along with it. 
+
+### Design 
+
+1. [Balsamiq](https://balsamiq.com/)
+
+I used Balsamiq to designa and draw my wireframes before coding the project.
+
+2. [Chrome Devtools](https://developer.chrome.com/docs/devtools/)
+
+Chrome Devtools was used throughout the process helping style the site and help fix any bugs which I found.
+
+3. [Am I Responsive](http://ami.responsivedesign.is/)
+Was used for the the Image at the top of the repository.
+
+
+### Lighthouse Testing
+All the scores in lighthouse are testing fairly high apart from the best practices.  The reason that best practices are being pulled down is because of the images shown on the recipe cards. As all of the img src are urls I can't fix this at this time but in the future when I would like the user to upload the actual image file rather thatn provide a url this will be addressed.
+
+<img src="assets/images/lighthouse-testing.png" height="100px">
+
 
 ### Deployment
 
