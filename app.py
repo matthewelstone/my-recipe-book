@@ -1,7 +1,7 @@
 import os
 from flask import (
     Flask, flash, render_template,
- redirect, request, session, url_for)
+    redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -18,7 +18,6 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
@@ -29,9 +28,8 @@ def get_recipes():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
-    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))   
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
     return render_template("recipes.html", recipes=recipes)
-
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -64,15 +62,18 @@ def login():
 
         if existing_user:
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(request.form.get("username").capitalize()))
-                    return redirect(url_for("profile", username=session["user"]))
+                existing_user["password"],
+                    request.form.get("password")):
+                        session["user"] = request.form.get("username").lower()
+                        flash("Welcome,{}".format(
+                            request.form.get("username").capitalize()))
+                        return redirect(url_for(
+                            "profile", username=session["user"]))
 
             else:
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
-            
+
         else:
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
@@ -82,16 +83,14 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    username= mongo.db.users.find_one(
+    username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
-
     if session["user"]:
-        recipes = list(mongo.db.recipes.find({"author" : username}))
+        recipes = list(mongo.db.recipes.find({"author": username}))
 
-
-
-        return render_template("profile.html", username=username, recipes=recipes)
+        return render_template(
+            "profile.html", username=username, recipes=recipes)
 
     return redirect("login.html")
 
@@ -121,7 +120,7 @@ def add_recipe():
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added")
-        return redirect(url_for("get_recipes"))   
+        return redirect(url_for("get_recipes"))
     cuisines = mongo.db.cuisines.find().sort("cuisine_name", 1)
     types = mongo.db.types.find().sort("type_name", 1)
     return render_template("add_recipe.html", cuisines=cuisines, types=types)
@@ -151,7 +150,8 @@ def edit_recipe(recipe_id):
 
     cuisines = mongo.db.cuisines.find().sort("cuisine_name", 1)
     types = mongo.db.types.find().sort("type_name", 1)
-    return render_template("edit_recipe.html", recipe=recipe, cuisines=cuisines, types=types)
+    return render_template(
+        "edit_recipe.html", recipe=recipe, cuisines=cuisines, types=types)
 
 
 @app.route("/recipe_page.html/<recipe_id>", methods=["GET", "POST"])
@@ -160,7 +160,8 @@ def recipe_page(recipe_id):
 
     cuisines = mongo.db.cuisines.find().sort("cuisine_name", 1)
     types = mongo.db.types.find().sort("type_name", 1)
-    return render_template("recipe_page.html", recipe=recipe, cuisines=cuisines, types=types)
+    return render_template(
+        "recipe_page.html", recipe=recipe, cuisines=cuisines, types=types)
 
 
 @app.route("/delete_recipe/<recipe_id>")
@@ -179,9 +180,7 @@ def get_cuisines():
 @app.route("/add_cuisine", methods=["GET", "POST"])
 def add_cuisine():
     if request.method == "POST":
-        cuisine = {
-            "cuisine_name": request.form.get("cuisine_name")
-        }
+        cuisine = {"cuisine_name": request.form.get("cuisine_name")}
         mongo.db.cuisines.insert_one(cuisine)
         flash("New Cuisine Added")
         return redirect(url_for("get_cuisines"))
@@ -206,7 +205,7 @@ def edit_cuisine(cuisine_id):
 @app.route("/delete_cuisine/<cuisine_id>")
 def delete_cuisine(cuisine_id):
     mongo.db.cuisines.delete_one({"_id": ObjectId(cuisine_id)})
-    flash ("Cuisine Sucessfully Deleted")
+    flash("Cuisine Sucessfully Deleted")
     return redirect(url_for("get_cuisines"))
 
 

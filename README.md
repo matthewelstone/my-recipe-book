@@ -132,11 +132,25 @@ Chrome Devtools was used throughout the process helping style the site and help 
 3. [Am I Responsive](http://ami.responsivedesign.is/)
 Was used for the the Image at the top of the repository.
 
+## Testing
 
 ### Lighthouse Testing
 All the scores in lighthouse are testing fairly high apart from the best practices.  The reason that best practices are being pulled down is because of the images shown on the recipe cards. As all of the img src are urls I can't fix this at this time but in the future when I would like the user to upload the actual image file rather thatn provide a url this will be addressed.
 
-<img src="assets/images/lighthouse-testing.png" height="100px">
+<img src="assets/images/pep8.png" height="100px">
+
+### Pep8 Validation
+-To test my python code I used the [pep8 validator](http://pep8online.com/)
+
+<img src="assets/images/lighthouse-testing.png" height="200px">
+
+
+
+### Known Bugs
+- There is still some styling from MaterializeCSS that is coming through. as when you hover on certain elements or select certain form elements.  I have been trying to fix this with no luck so far and will continue to look into it in the future. 
+
+
+
 
 
 ### Deployment
@@ -190,3 +204,9 @@ A Heroku account is required for this.
 6. Within Deploy select enable Automatic deploys. Below this you can select which branch you would like to deploy.
 7. Click this to open the App.
 
+### Credits
+
+- [Materialize](https://materializecss.com/) was used for the structure and layout of the site.
+- [Stackoverflow](https://stackoverflow.com/) was used to help find solutions to issues whilst building the project.
+- [BBCFood](https://www.bbc.co.uk/food) [OliveMagazine](https://www.olivemagazine.com/) [YotamOttolenghi](https://ottolenghi.co.uk/recipes) were used for the recipes on the site.
+- [Code Institute](https://learn.codeinstitute.net/login?next=/) mini task project was used as a starting point for the project to help functionality.
