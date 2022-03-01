@@ -20,8 +20,6 @@
 - [Technologies Used](#technologies-used)
 
 - [Testing](#testing)
-  - [User Stories](#user-stories) 
-  - [Owner Goals](#owner-goals)
   - [Lighthouse Testing](#lighthouse-testing)
   - [HTML and CSS Testing](#html-and-css-testing)
   - [Known Bugs](#known-bugs)
@@ -186,9 +184,6 @@ All the scores in lighthouse are testing fairly high apart from the best practic
 
 ### Known Bugs
 - There is still some styling from MaterializeCSS that is coming through. as when you hover on certain elements or select certain form elements.  I have been trying to fix this with no luck so far and will continue to look into it in the future. 
-
-
-
 
 
 ### Deployment
