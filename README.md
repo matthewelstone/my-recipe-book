@@ -73,3 +73,54 @@ All text is rendered in Roboto as it is easy to read and widely used. Giving the
 
 The site is designed to work and be used on various screen sizes with the layout changing responsively thanks to Materializecss.
 
+### Deployment
+
+- Creation 
+
+I first created this repository by doing the following.
+
+1. Logging into GitHub and clicking the green New button in the top right corner of the screen.
+2. I then created a new repository using the Code Institute-Org/gitpod-full-template and used the repository name MyRecipeBook I then clicked create repository.
+3.I had the Gitpod chrome plugin downloaded so I clicked the green Gitpod button on the repository where I could start to write code for the site.
+
+### Forking the Repository
+
+To fork the repository to contribute to the project you can do the following.
+1. Log in to GitHub and open the MyRecipeBook repository.
+2. At the top right hand side of the page underneath your profile there is a fork symbol.
+3. Once you have clicked this the repository will be forked.
+
+### Cloning the Repository
+
+If you wish to clone the repository you can do the following.
+1. Go to [My account](https://github.com/matthewelstone) and sellect the MyRecipeBook repository.
+2. Next to the GitPod button (if you have GitPod installed) or in the top right click the code button.
+3. Click download zip.
+4. You can then open the repository with your chosen code editor.
+
+### Create A MongoDB Database
+
+A MongoDB Account is required for this.
+
+1. Create a new database in MongoDB
+2. Create collections for users, recipes, types and cuisines
+
+### Environment Variables 
+
+1. Create your env.py file which will contain sensitive information. Because of this add it to your .gitignore file. 
+2. Within your env.py file
+  - enter your Mongo_URI found within the 'connect' section of the cluster page.
+  - set your IP and PORT
+  - Create a secret key using [RandomKeygen](https://randomkeygen.com/)
+
+### Heroku Deployment
+A Heroku account is required for this.
+
+1. Create a new app within Heroku.
+2. Choose an original name for the app.
+3. Within the deployment tab  select GitHub and link with your GitHub repository.
+4. In settings reveal your config vars.
+5. Add all the of the same environment variables as in the env.py file.
+6. Within Deploy select enable Automatic deploys. Below this you can select which branch you would like to deploy.
+7. Click this to open the App.
+
