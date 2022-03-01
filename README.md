@@ -121,11 +121,11 @@ I made my wireframes using Balsamiq. I didn't make a wireframe for each individu
 - Changing the image upload so that you can upload an actual image instead of imputing a URL
 - Adding a comments section to each of the recipe pages
 - Adding a rating section for each of the recipes
-
-
+- Adding a seperate page where you can save other users recipes.
+- Adding a conversion rate for the ingredient measurements 
+eg. from grams to cups.
 
 ## Technologies Used
-
 
 ### Languages and Libraries Used
 1. [HTML5](https://en.wikipedia.org/wiki/HTML5)
